@@ -4,6 +4,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dim_rider](
  [rider_id] [int] PRIMARY KEY NONCLUSTERED NOT ENFORCED,
+ [rider_type] [varchar](50) NULL,
  [first] [varchar](50) NULL,
  [last] [varchar](50) NULL,
  [address] [varchar](100) NULL,
@@ -15,8 +16,9 @@ CREATE TABLE [dim_rider](
 )
 GO
 
-INSER INTO dbo.dim_rider
+INSERT INTO dbo.dim_rider
 SELECT [rider_id],
+[rider_type],
 [first_name],
 [last_name],
 [address],
