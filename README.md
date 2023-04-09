@@ -44,11 +44,6 @@ Below is star schema:
 
 <img src="screenshots/star_schema.jpeg" alt="star model">
 
-## Task 2: Design a star schema
-
-1. Create Azure Databricks Workspace
-<img src="screenshots/databricks.png" alt="databrick">
-
 ## Task 3 : Create the data in PostgreSQL
 
 - Download the script file and place it in a folder where you can run a Python script
@@ -57,16 +52,16 @@ Below is star schema:
 - Run the script and verify that all four data files are copied/uploaded into PostgreSQL
 I can verify this data exists by using pgAdmin or a similar PostgreSQL data tool.
 
-![divvy-erd](./screenshot/load_data.jpeg)
+![divvy-erd](./screenshot/VS_Code.png)
 
 ## Task 4 : EXTRACT the data from PostgreSQL
 
 In Azure Synapse workspace, you will use the ingest wizard to create a one-time pipeline that ingests the data from PostgreSQL into Azure Blob Storage. This will result in all four tables being represented as text files in Blob Storage, ready for loading into the data warehouse.
 
 Verify ingesting the data from PostgreSQL:
-![divvy-erd](./screenshot/ingest.jpeg)
+![divvy-erd](./screenshot/Deployment_Compleet.jpg)
 
-![divvy-erd](./screenshot/extract_data.jpeg)
+![divvy-erd](./screenshot/List.jpg)
 
 ## Task 5 : LOAD the data into external tables in the data warehouse
 
