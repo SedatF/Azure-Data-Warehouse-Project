@@ -25,7 +25,15 @@ SELECT
 	[start_station_id],
 	[end_station_id],
 	dim_rider_table.rider_id,
-	DATEDIFF(YEAR,dim_rider_table.[birthday],dim_da_end_at_table.d_date),
+	(DATEDIFF(year, r.birthday,
+    		CONVERT(Datetime, SUBSTRING([started_at], 1, 19),120)) - (
+        		CASE WHEN MONTH(r.birthday) > MONTH(CONVERT(Datetime, SUBSTRING([started_at], 1, 19),120))
+        		OR MONTH(r.birthday) =
+            			MONTH(CONVERT(Datetime, SUBSTRING([started_at], 1, 19),120))
+        		AND DAY(r.birthday) >
+            			DAY(CONVERT(Datetime, SUBSTRING([started_at], 1, 19),120))
+        		THEN 1 ELSE 0 END
+    		)) AS [rider_age],
 	DATEDIFF(MINUTE,dim_da_start_at_table.d_date,dim_da_end_at_table.d_date)
  FROM 
 	[dbo].[trip_stage] trip_stage_table
