@@ -42,7 +42,7 @@ The goal of this project is to develop a data lake solution using Azure Databric
 
 Below is star schema:
 
-<img src="screenshots/star_schema.png" alt="star model">
+<img src="screenshots/star_schema.jpeg" alt="star model">
 
 ## Task 2: Design a star schema
 
@@ -75,6 +75,6 @@ Once in Blob storage, the files will be shown in the data lake node in the Synap
 ## Task 6 : TRANSFORM the data to the star schema
 I will write SQL scripts to transform the data from the staging tables to the final star schema you designed.
 
-![divvy-erd](./screenshot/load_data.jpeg)
+![divvy-erd](./screenshot/Load_Transform_Data.png)
 
 
