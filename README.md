@@ -31,33 +31,50 @@ The goal of this project is to develop a data lake solution using Azure Databric
 - Based on how many rides the rider averages per month
 - Based on how many minutes the rider spends on a bike per month
 
-# TASK NEED TO COMPLETE
+# TASKS
 
-## Task 1: Design Bikeshare Star Schema
+## Task 1 : Create Azure resources
+- Create an Azure PostgreSQL database
+- Create an Azure Synapse workspace. Note that if you've previously created a Synapse Workspace, you do not need to create a second one specifically for the project.
+- Use the built-in serverless SQL pool and database within the Synapse workspace
 
-Below is our star schema:
+## Task 2 : Design a star schema  
+
+Below is star schema:
 
 <img src="screenshots/star_schema.png" alt="star model">
 
-## Task 2: Import the data into Azure Databricks using Delta Lake to create a Bronze data store
+## Task 2: Design a star schema
 
 1. Create Azure Databricks Workspace
 <img src="screenshots/databricks.png" alt="databrick">
 
-2. Create Databricks Cluster
-<img src="screenshots/Cluster.png" alt="databrick">
+## Task 3 : Create the data in PostgreSQL
 
-3. Import data to DBFS path <b>/FileStore/tables/</b>
-<img src="screenshots/DBFS.png" alt="Dbfs">
+- Download the script file and place it in a folder where you can run a Python script
+- Download the data files from the classroom resources or [this link](https://video.udacity-data.com/topher/2022/March/622a5fc6_azure-data-warehouse-projectdatafiles/azure-data-warehouse-projectdatafiles.zip)
+- Open the script file in VS Code and add the host, username, and password information for your PostgreSQL database
+- Run the script and verify that all four data files are copied/uploaded into PostgreSQL
+I can verify this data exists by using pgAdmin or a similar PostgreSQL data tool.
 
-4. Create a gold data store in Delta Lake tables by using Databricks Python notebook
+![divvy-erd](./screenshot/load_data.jpeg)
 
-4 tables already loaded in hive_metastore default schema:
-<img src="screenshots/delta_table_loaded.png" alt="delta table">
+## Task 4 : EXTRACT the data from PostgreSQL
 
-5. Transform Delta source tables into designed star schema (dim/fact tables)
+In Azure Synapse workspace, you will use the ingest wizard to create a one-time pipeline that ingests the data from PostgreSQL into Azure Blob Storage. This will result in all four tables being represented as text files in Blob Storage, ready for loading into the data warehouse.
 
-Dimension and fact tables already loaded in hive_metastore default schema:
-<img src="screenshots/data_transformed.png" alt="star table">
+Verify ingesting the data from PostgreSQL:
+![divvy-erd](./screenshot/ingest.jpeg)
+
+![divvy-erd](./screenshot/extract_data.jpeg)
+
+## Task 5 : LOAD the data into external tables in the data warehouse
+
+Once in Blob storage, the files will be shown in the data lake node in the Synapse Workspace. From here, you can use the script-generating function to load the data from blob storage into external staging tables in the data warehouse you created using the serverless SQL Pool.
+
+## Task 6 : TRANSFORM the data to the star schema
+I will write SQL scripts to transform the data from the staging tables to the final star schema you designed.
+
+![divvy-erd](./screenshot/load_data.jpeg)
 
 
