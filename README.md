@@ -52,16 +52,16 @@ Below is star schema:
 - Run the script and verify that all four data files are copied/uploaded into PostgreSQL
 I can verify this data exists by using pgAdmin or a similar PostgreSQL data tool.
 
-![divvy-erd](./screenshot/VS_Code.png)
+![divvy-erd](./screenshots/VS_Code.png)
 
 ## Task 4 : EXTRACT the data from PostgreSQL
 
 In Azure Synapse workspace, you will use the ingest wizard to create a one-time pipeline that ingests the data from PostgreSQL into Azure Blob Storage. This will result in all four tables being represented as text files in Blob Storage, ready for loading into the data warehouse.
 
 Verify ingesting the data from PostgreSQL:
-![divvy-erd](./screenshot/Deployment_Compleet.jpg)
+![divvy-erd](./screenshots/Deployment_Compleet.jpg)
 
-![divvy-erd](./screenshot/List.jpg)
+![divvy-erd](./screenshots/List.jpg)
 
 ## Task 5 : LOAD the data into external tables in the data warehouse
 
@@ -70,6 +70,6 @@ Once in Blob storage, the files will be shown in the data lake node in the Synap
 ## Task 6 : TRANSFORM the data to the star schema
 I will write SQL scripts to transform the data from the staging tables to the final star schema you designed.
 
-![divvy-erd](./screenshot/Load_Transform_Data.png)
+![divvy-erd](./screenshots/Load_Transform_Data.png)
 
 
