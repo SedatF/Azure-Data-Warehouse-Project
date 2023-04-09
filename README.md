@@ -42,7 +42,7 @@ The goal of this project is to develop a data lake solution using Azure Databric
 
 Below is star schema:
 
-<img src="screenshots/star_schema.jpeg" alt="star model">
+<img src="screenshots/star_schema3.jpg" alt="star model">
 
 ## Task 3 : Create the data in PostgreSQL
 
